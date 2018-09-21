@@ -1,9 +1,26 @@
 ## Project Overview
   - Fibonacci number solver that runs inside of a GenServer
   - The Fibonacci Solver is started and monitored by a supervisor
-  - Initial state cache contains a map of {0 => 1, 1 => 1}
+  - Initial state cache contains a map of %{0 => 1, 1 => 1}
   - It builds up answers as it decrements the provided input until reaching 2
   - It caches the solved result and all answers it solved to figure it out
+
+## Possible Enhancements
+  ### Current Functionality
+    If it knows the answer (from cache) it is provided instantly.
+  ### Possible Enhancement
+    Use the largest answer it already knows to help solve new unknown fibs.
+
+  ### Current Functionality
+    Caches a map %{input => result} of all known values.
+  ### Possible Enhancement
+    Setting a range used to qualify if it should cache a result.
+    This would minimize the memory footprint by storing less items.
+
+  ### Current Functionality
+    Right now the cache is stored as long as the process has not died.
+  ### Possible Enhancement
+    Option for if a value should leave after no cache hit in a duration.
 
 ## Instructions
 ```
