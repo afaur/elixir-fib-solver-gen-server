@@ -1,9 +1,17 @@
 ## Project Overview
-  - Fibonacci number solver that runs inside of a GenServer
+  - Fibonacci number solver that operates as a process using GenServer
   - The Fibonacci Solver is started and monitored by a supervisor
   - Initial state cache contains a map of %{0 => 1, 1 => 1}
   - It builds up answers as it decrements the provided input until reaching 2
   - It caches the solved result and all answers it solved to figure it out
+
+## Benefits from Erlang
+  - Has one integer type and supports big integers, large numbers are computed
+      without any additional logic in our implementation.
+  - Map type in state will handle big integers as values.
+  - Pattern matching and function overloading add simplicity.
+  - Using a supervisor to monitor the fib process, it is restarted if it dies.
+  - Able to use genserver to implement state, and messaging from other processes.
 
 ## Possible Enhancements
   ### Current Functionality
